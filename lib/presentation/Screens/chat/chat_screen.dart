@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yes_no_app/domain/entities/message.dart';
+import 'package:yes_no_app/presentation/Screens/settings/settings_screen.dart';
 import 'package:yes_no_app/presentation/providers/chat_provider.dart';
 import 'package:yes_no_app/presentation/widgets/chat/my_message_bubble.dart';
 import 'package:yes_no_app/presentation/widgets/chat/other_message_bubble.dart';
@@ -23,9 +24,47 @@ class ChatScreen extends StatelessWidget {
           ),
           title: const Text("Reales :0"),
           centerTitle: false,
+          actions: [
+            PopupMenuButton<int>(
+              onSelected: (item) => onSelected(context, item),
+              itemBuilder: (context) => [
+                const PopupMenuItem<int>(
+                  value: 0,
+                  child: Row(
+                  children: [
+                      Icon(Icons.settings),
+                      SizedBox(width: 8),
+                      Text('Settings'),
+                    ],
+                  ),
+                ),
+                const PopupMenuItem<int>(
+                  value: 2,
+                  child: Row(
+                  children: [
+                      Icon(Icons.exit_to_app),
+                      SizedBox(width: 8),
+                      Text('Exit'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
         body: _ChatView(),
+        
     );
+  }
+}
+
+void onSelected(BuildContext context, int item){
+  switch (item) {
+    case 0:
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => SettingsScreen())
+    );
+    break;
   }
 }
 
@@ -56,8 +95,6 @@ class _ChatView extends StatelessWidget {
                 itemCount: chatProvider.messageList.length,
                 itemBuilder: (context, index) {
                   final message = chatProvider.messageList[index];
-
-                  //message.imageURL!
 
                   //Retorna si el mensaje es mío o de la otra persona
                   return (message.fromWho == FromWho.theirs)

@@ -25,15 +25,30 @@ class MessageFieldBox extends StatelessWidget {
         enabledBorder: outlineInputBorder,
         focusedBorder: outlineInputBorder,
         filled: true,
-        suffixIcon: IconButton(
-          icon: const Icon(Icons.send_outlined),
-          onPressed: (){
-            final textValue = textController.value.text; //Obtiene el texto de la caja
-            onValue(textValue);
-            textController.clear();
+        suffixIcon: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+            icon: const Icon(Icons.image),
+            onPressed: (){
+              final textValue = textController.value.text; //Obtiene el texto de la caja
+              onValue(textValue);
+              textController.clear();
+            }
+            ),
+            IconButton(
+            icon: const Icon(Icons.send_outlined),
+            onPressed: (){
+              final textValue = textController.value.text; //Obtiene el texto de la caja
+              onValue(textValue);
+              textController.clear();
           }
         ),
-      );
+          ],
+        ),
+          
+    );
 
     return TextFormField(
       onTapOutside: (event){ //Permite quitar el focus si se da clic fuera del teclado

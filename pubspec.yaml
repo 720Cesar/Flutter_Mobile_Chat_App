@@ -32,7 +32,12 @@ dependencies:
   dio: ^5.4.3+1
   flutter:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1
   provider: ^6.1.2
+  insta_image_viewer: ^1.0.4
+  image_picker: ^1.1.2
+  lottie: ^3.1.2
+
 
 dev_dependencies:
 
@@ -81,3 +86,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: "launcher_icon"
+  image_path: "lib/assets/icons/app_icon.png"
+  remove_alpha_ios: true

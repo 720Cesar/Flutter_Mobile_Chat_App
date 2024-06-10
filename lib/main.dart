@@ -21,11 +21,13 @@ class MyApp extends StatelessWidget {
         //Al ponerla en Main, se permite a toda la app porque es el nivel más alto
         ChangeNotifierProvider(create: (_) => ChatProvider())
       ],
+      
       child: MaterialApp(
         title: 'Yes No App',
         debugShowCheckedModeBanner: false, //Evita mostrar la etiqueta debug
         theme: AppTheme(selectedColor: 6).theme(), //Instancia que permite obtener el tema desde otro archivo
-        home: const ChatScreen()
+        home: const ChatScreen(),
+        
       ),
     );
   }

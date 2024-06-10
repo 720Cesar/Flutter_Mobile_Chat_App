@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:yes_no_app/domain/entities/message.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:insta_image_viewer/insta_image_viewer.dart';
+
+
 
 class MyMessageBubble extends StatelessWidget {
 
@@ -30,9 +34,10 @@ class MyMessageBubble extends StatelessWidget {
           ),
         ),
 
-        const SizedBox(height: 5)
+        const SizedBox(height: 5),
 
       ],
     );
   }
 }
+
